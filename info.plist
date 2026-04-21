@@ -23,9 +23,9 @@
 		</array>
 	</dict>
 	<key>createdby</key>
-	<string>Kevin</string>
+	<string>Kevin (snazzybean)</string>
 	<key>description</key>
-	<string>Schnelle Übersetzung mit automatischer Spracherkennung</string>
+	<string>Quick translation with automatic language detection</string>
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
@@ -58,7 +58,7 @@
 				<key>queuemode</key>
 				<integer>2</integer>
 				<key>runningsubtext</key>
-				<string>Übersetze…</string>
+				<string>Translating…</string>
 				<key>script</key>
 				<string>/usr/bin/python3 translate.py "{query}"</string>
 				<key>scriptargtype</key>
@@ -66,7 +66,7 @@
 				<key>scriptfile</key>
 				<string></string>
 				<key>subtext</key>
-				<string>Text übersetzen</string>
+				<string>Translate text</string>
 				<key>title</key>
 				<string>Translate</string>
 				<key>type</key>
@@ -100,41 +100,32 @@
 	<key>readme</key>
 	<string># Quick Translate
 
-Translate text straight from Alfred.
-
 ## Usage
 
-Type the keyword (default: `t`), then the text you want to translate.
+Translate text and copy the result to the clipboard via the `qtr` keyword.
 
 **Examples:**
-- `t Hallo Welt` → "Hello World"
-- `t how are you` → "Wie geht es dir"
-- `t bonjour le monde` → "Hallo Welt"
+- `qtr Hallo Welt` → "Hello World"
+- `qtr how are you` → "Wie geht es dir"
+- `qtr bonjour le monde` → "Hallo Welt"
+
+Text in your primary language is translated to your target language. Text in any other language comes back to your primary language.
 
 ## Features
 
-- **Auto language detection** for 130+ languages
-- **Dictionary mode** for single words (parts of speech + synonyms)
-- **Alternative translations** for sentences
-- **Transliteration** for non-Latin scripts
-- **Autocorrect** for typos
-- **Parallel API calls** for maximum speed
+- Auto language detection for 130+ languages
+- Dictionary entries for single words (parts of speech, synonyms)
+- Alternative translations for sentences
+- Transliteration for non-Latin scripts
+- Autocorrect suggestions for typos
 
-## Behaviour
+## Workflow's Configuration
 
-- Text in your **primary language** → translated into your **target language**
-- Text in **any other language** → translated into your **primary language**
+- Primary Language (default: German)
+- Target Language (default: English)
+- Keyword (default: qtr)
 
-## Settings
-
-- **Primary Language**: Your native language (default: German)
-- **Target Language**: Where your primary language is translated to (default: English)
-- **Keyword**: The Alfred keyword (default: t)
-- **Delay**: Wait time after typing before translating (default: 0.3s)
-
-Press Enter → the translation is copied to the clipboard.
-
-Uses Google Translate (free, no API key required).</string>
+Uses Google Translate. No API key required.</string>
 	<key>uidata</key>
 	<dict>
 		<key>A1B2C3D4-1111-2222-3333-444455556666</key>
@@ -244,9 +235,9 @@ Uses Google Translate (free, no API key required).</string>
 				</array>
 			</dict>
 			<key>description</key>
-			<string>Deine Muttersprache. Text in dieser Sprache wird in die Zielsprache übersetzt.</string>
+			<string>Your native language. Text in this language is translated to the target language.</string>
 			<key>label</key>
-			<string>Primärsprache</string>
+			<string>Primary Language</string>
 			<key>type</key>
 			<string>popupbutton</string>
 			<key>variable</key>
@@ -342,9 +333,9 @@ Uses Google Translate (free, no API key required).</string>
 				</array>
 			</dict>
 			<key>description</key>
-			<string>Wohin deine Primärsprache übersetzt wird.</string>
+			<string>Where your primary language is translated to.</string>
 			<key>label</key>
-			<string>Zielsprache</string>
+			<string>Target Language</string>
 			<key>type</key>
 			<string>popupbutton</string>
 			<key>variable</key>
@@ -354,14 +345,14 @@ Uses Google Translate (free, no API key required).</string>
 			<key>config</key>
 			<dict>
 				<key>default</key>
-				<string>t</string>
+				<string>qtr</string>
 				<key>placeholder</key>
-				<string>z.B. t, tr, translate</string>
+				<string>e.g. qtr, tr, translate</string>
 				<key>required</key>
 				<true/>
 			</dict>
 			<key>description</key>
-			<string>Das Keyword, das du in Alfred tippst um eine Übersetzung zu starten.</string>
+			<string>The keyword you type in Alfred to start a translation.</string>
 			<key>label</key>
 			<string>Keyword</string>
 			<key>type</key>
