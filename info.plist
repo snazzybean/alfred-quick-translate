@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>com.kevin.translate</string>
+	<key>category</key>
+	<string>Productivity</string>
+	<key>connections</key>
+	<dict>
+		<key>A1B2C3D4-1111-2222-3333-444455556666</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>B2C3D4E5-2222-3333-4444-555566667777</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitowards</key>
+				<string></string>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Kevin</string>
+	<key>description</key>
+	<string>Schnelle Übersetzung mit automatischer Spracherkennung</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Quick Translate</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<false/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>keyword</key>
+				<string>{var:keyword}</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<false/>
+				<key>queuedelaymode</key>
+				<integer>1</integer>
+				<key>queuemode</key>
+				<integer>2</integer>
+				<key>runningsubtext</key>
+				<string>Übersetze…</string>
+				<key>script</key>
+				<string>/usr/bin/python3 translate.py "{query}"</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>Text übersetzen</string>
+				<key>title</key>
+				<string>Translate</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>A1B2C3D4-1111-2222-3333-444455556666</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>clipboardtext</key>
+				<string>{query}</string>
+				<key>transient</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.clipboard</string>
+			<key>uid</key>
+			<string>B2C3D4E5-2222-3333-4444-555566667777</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string># Quick Translate
+
+Schnelle Übersetzung direkt aus Alfred heraus.
+
+## Benutzung
+
+Keyword eingeben (Standard: `t`), dann den zu übersetzenden Text.
+
+**Beispiele:**
+- `t Hallo Welt` → "Hello World"
+- `t how are you` → "Wie geht es dir"
+- `t bonjour le monde` → "Hallo Welt"
+
+## Features
+
+- **Automatische Spracherkennung** für 130+ Sprachen
+- **Wörterbuch-Modus** bei einzelnen Wörtern (Wortarten + Synonyme)
+- **Alternative Übersetzungen** bei Sätzen
+- **Transliteration** bei nicht-lateinischen Schriften
+- **Tippfehler-Korrektur**
+- **Parallele API-Calls** für maximale Geschwindigkeit
+
+## Verhalten
+
+- Text in deiner **Primärsprache** → wird in die **Zielsprache** übersetzt
+- Text in **jeder anderen Sprache** → wird in die **Primärsprache** übersetzt
+
+## Einstellungen
+
+- **Primärsprache**: Deine Muttersprache (Standard: Deutsch)
+- **Zielsprache**: Wohin deine Primärsprache übersetzt wird (Standard: Englisch)
+- **Keyword**: Das Alfred-Keyword (Standard: t)
+- **Verzögerung**: Wartezeit nach dem Tippen bevor übersetzt wird (Standard: 0.3s)
+
+Enter drücken → Übersetzung wird in die Zwischenablage kopiert.
+
+Nutzt Google Translate (kostenlos, kein API-Key nötig).</string>
+	<key>uidata</key>
+	<dict>
+		<key>A1B2C3D4-1111-2222-3333-444455556666</key>
+		<dict>
+			<key>xpos</key>
+			<real>60</real>
+			<key>ypos</key>
+			<real>60</real>
+		</dict>
+		<key>B2C3D4E5-2222-3333-4444-555566667777</key>
+		<dict>
+			<key>xpos</key>
+			<real>340</real>
+			<key>ypos</key>
+			<real>60</real>
+		</dict>
+	</dict>
+	<key>userconfigurationconfig</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>de</string>
+				<key>pairs</key>
+				<array>
+					<array>
+						<string>Deutsch</string>
+						<string>de</string>
+					</array>
+					<array>
+						<string>English</string>
+						<string>en</string>
+					</array>
+					<array>
+						<string>Français</string>
+						<string>fr</string>
+					</array>
+					<array>
+						<string>Español</string>
+						<string>es</string>
+					</array>
+					<array>
+						<string>Italiano</string>
+						<string>it</string>
+					</array>
+					<array>
+						<string>Português</string>
+						<string>pt</string>
+					</array>
+					<array>
+						<string>Nederlands</string>
+						<string>nl</string>
+					</array>
+					<array>
+						<string>Polski</string>
+						<string>pl</string>
+					</array>
+					<array>
+						<string>Русский</string>
+						<string>ru</string>
+					</array>
+					<array>
+						<string>Türkçe</string>
+						<string>tr</string>
+					</array>
+					<array>
+						<string>日本語</string>
+						<string>ja</string>
+					</array>
+					<array>
+						<string>한국어</string>
+						<string>ko</string>
+					</array>
+					<array>
+						<string>中文</string>
+						<string>zh-CN</string>
+					</array>
+					<array>
+						<string>العربية</string>
+						<string>ar</string>
+					</array>
+					<array>
+						<string>हिन्दी</string>
+						<string>hi</string>
+					</array>
+					<array>
+						<string>Svenska</string>
+						<string>sv</string>
+					</array>
+					<array>
+						<string>Dansk</string>
+						<string>da</string>
+					</array>
+					<array>
+						<string>Norsk</string>
+						<string>no</string>
+					</array>
+					<array>
+						<string>Čeština</string>
+						<string>cs</string>
+					</array>
+					<array>
+						<string>Українська</string>
+						<string>uk</string>
+					</array>
+				</array>
+			</dict>
+			<key>description</key>
+			<string>Deine Muttersprache. Text in dieser Sprache wird in die Zielsprache übersetzt.</string>
+			<key>label</key>
+			<string>Primärsprache</string>
+			<key>type</key>
+			<string>popupbutton</string>
+			<key>variable</key>
+			<string>primary_lang</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>en</string>
+				<key>pairs</key>
+				<array>
+					<array>
+						<string>English</string>
+						<string>en</string>
+					</array>
+					<array>
+						<string>Deutsch</string>
+						<string>de</string>
+					</array>
+					<array>
+						<string>Français</string>
+						<string>fr</string>
+					</array>
+					<array>
+						<string>Español</string>
+						<string>es</string>
+					</array>
+					<array>
+						<string>Italiano</string>
+						<string>it</string>
+					</array>
+					<array>
+						<string>Português</string>
+						<string>pt</string>
+					</array>
+					<array>
+						<string>Nederlands</string>
+						<string>nl</string>
+					</array>
+					<array>
+						<string>Polski</string>
+						<string>pl</string>
+					</array>
+					<array>
+						<string>Русский</string>
+						<string>ru</string>
+					</array>
+					<array>
+						<string>Türkçe</string>
+						<string>tr</string>
+					</array>
+					<array>
+						<string>日本語</string>
+						<string>ja</string>
+					</array>
+					<array>
+						<string>한국어</string>
+						<string>ko</string>
+					</array>
+					<array>
+						<string>中文</string>
+						<string>zh-CN</string>
+					</array>
+					<array>
+						<string>العربية</string>
+						<string>ar</string>
+					</array>
+					<array>
+						<string>हिन्दी</string>
+						<string>hi</string>
+					</array>
+					<array>
+						<string>Svenska</string>
+						<string>sv</string>
+					</array>
+					<array>
+						<string>Dansk</string>
+						<string>da</string>
+					</array>
+					<array>
+						<string>Norsk</string>
+						<string>no</string>
+					</array>
+					<array>
+						<string>Čeština</string>
+						<string>cs</string>
+					</array>
+					<array>
+						<string>Українська</string>
+						<string>uk</string>
+					</array>
+				</array>
+			</dict>
+			<key>description</key>
+			<string>Wohin deine Primärsprache übersetzt wird.</string>
+			<key>label</key>
+			<string>Zielsprache</string>
+			<key>type</key>
+			<string>popupbutton</string>
+			<key>variable</key>
+			<string>target_lang</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>t</string>
+				<key>placeholder</key>
+				<string>z.B. t, tr, translate</string>
+				<key>required</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string>Das Keyword, das du in Alfred tippst um eine Übersetzung zu starten.</string>
+			<key>label</key>
+			<string>Keyword</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>keyword</string>
+		</dict>
+	</array>
+	<key>version</key>
+	<string>1.2.0</string>
+	<key>webaddress</key>
+	<string></string>
+</dict>
+</plist>
