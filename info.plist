@@ -100,41 +100,41 @@
 	<key>readme</key>
 	<string># Quick Translate
 
-Schnelle Übersetzung direkt aus Alfred heraus.
+Translate text straight from Alfred.
 
-## Benutzung
+## Usage
 
-Keyword eingeben (Standard: `t`), dann den zu übersetzenden Text.
+Type the keyword (default: `t`), then the text you want to translate.
 
-**Beispiele:**
+**Examples:**
 - `t Hallo Welt` → "Hello World"
 - `t how are you` → "Wie geht es dir"
 - `t bonjour le monde` → "Hallo Welt"
 
 ## Features
 
-- **Automatische Spracherkennung** für 130+ Sprachen
-- **Wörterbuch-Modus** bei einzelnen Wörtern (Wortarten + Synonyme)
-- **Alternative Übersetzungen** bei Sätzen
-- **Transliteration** bei nicht-lateinischen Schriften
-- **Tippfehler-Korrektur**
-- **Parallele API-Calls** für maximale Geschwindigkeit
+- **Auto language detection** for 130+ languages
+- **Dictionary mode** for single words (parts of speech + synonyms)
+- **Alternative translations** for sentences
+- **Transliteration** for non-Latin scripts
+- **Autocorrect** for typos
+- **Parallel API calls** for maximum speed
 
-## Verhalten
+## Behaviour
 
-- Text in deiner **Primärsprache** → wird in die **Zielsprache** übersetzt
-- Text in **jeder anderen Sprache** → wird in die **Primärsprache** übersetzt
+- Text in your **primary language** → translated into your **target language**
+- Text in **any other language** → translated into your **primary language**
 
-## Einstellungen
+## Settings
 
-- **Primärsprache**: Deine Muttersprache (Standard: Deutsch)
-- **Zielsprache**: Wohin deine Primärsprache übersetzt wird (Standard: Englisch)
-- **Keyword**: Das Alfred-Keyword (Standard: t)
-- **Verzögerung**: Wartezeit nach dem Tippen bevor übersetzt wird (Standard: 0.3s)
+- **Primary Language**: Your native language (default: German)
+- **Target Language**: Where your primary language is translated to (default: English)
+- **Keyword**: The Alfred keyword (default: t)
+- **Delay**: Wait time after typing before translating (default: 0.3s)
 
-Enter drücken → Übersetzung wird in die Zwischenablage kopiert.
+Press Enter → the translation is copied to the clipboard.
 
-Nutzt Google Translate (kostenlos, kein API-Key nötig).</string>
+Uses Google Translate (free, no API key required).</string>
 	<key>uidata</key>
 	<dict>
 		<key>A1B2C3D4-1111-2222-3333-444455556666</key>
@@ -373,6 +373,6 @@ Nutzt Google Translate (kostenlos, kein API-Key nötig).</string>
 	<key>version</key>
 	<string>1.0.0</string>
 	<key>webaddress</key>
-	<string></string>
+	<string>https://github.com/snazzybean/alfred-quick-translate</string>
 </dict>
 </plist>
