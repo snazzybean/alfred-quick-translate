@@ -1,5 +1,10 @@
 # Quick Translate — Alfred Workflow
 
+[![GitHub Release](https://img.shields.io/github/v/release/snazzybean/alfred-quick-translate)](https://github.com/snazzybean/alfred-quick-translate/releases/latest)
+[![Downloads](https://img.shields.io/github/downloads/snazzybean/alfred-quick-translate/total)](https://github.com/snazzybean/alfred-quick-translate/releases)
+[![License](https://img.shields.io/github/license/snazzybean/alfred-quick-translate)](https://github.com/snazzybean/alfred-quick-translate/blob/main/LICENSE)
+[![Ko-fi](https://img.shields.io/badge/Ko--fi-Support-FF5E5B?logo=ko-fi&logoColor=white)](https://ko-fi.com/Y8Y31VP2VK)
+
 Translate text straight from Alfred. Auto-detects the input language, shows dictionary entries for single words, and gives you alternative translations.
 
 ![Quick Translate Demo](screenshots/demo.png)
