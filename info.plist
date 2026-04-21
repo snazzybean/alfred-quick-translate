@@ -371,7 +371,7 @@ Nutzt Google Translate (kostenlos, kein API-Key nötig).</string>
 		</dict>
 	</array>
 	<key>version</key>
-	<string>1.2.0</string>
+	<string>1.0.0</string>
 	<key>webaddress</key>
 	<string></string>
 </dict>
