@@ -1,0 +1,65 @@
+name: 🐛 Bug Report
+description: Report a bug in Quick Translate
+labels: ["bug"]
+body:
+  - type: input
+    id: workflow_version
+    attributes:
+      label: Quick Translate version
+      description: Found in Alfred → Preferences → Workflows → Quick Translate (right-hand panel, "Version")
+      placeholder: "1.0.2"
+    validations:
+      required: true
+
+  - type: input
+    id: alfred_version
+    attributes:
+      label: Alfred version
+      description: Alfred → Preferences → About
+      placeholder: "5.7.2"
+    validations:
+      required: true
+
+  - type: input
+    id: macos_version
+    attributes:
+      label: macOS version
+      placeholder: "14.5"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: What happened? What did you expect to happen instead? Since when / after which update does this occur?
+    validations:
+      required: true
+
+  - type: textarea
+    id: input
+    attributes:
+      label: Input that triggered the issue
+      description: What exactly did you type into Alfred?
+      placeholder: "qtr Hallo Welt"
+
+  - type: textarea
+    id: config
+    attributes:
+      label: Configuration
+      description: Your Primary Language, Target Language, and Keyword settings.
+      placeholder: |
+        Primary: German (de)
+        Target:  English (en)
+        Keyword: qtr
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant log output
+      description: |
+        If Alfred showed an error like "Fehler: …", paste it here.
+        For deeper debugging, run in Terminal:
+        `primary_lang=de target_lang=en python3 translate.py "your text"`
+        and paste the output.
+      render: text
