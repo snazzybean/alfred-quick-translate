@@ -12,6 +12,31 @@
 		<array>
 			<dict>
 				<key>destinationuid</key>
+				<string>C3D4E5F6-3333-4444-5555-666677778888</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitowards</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>C3D4E5F6-3333-4444-5555-666677778888</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>D4E5F6A7-4444-5555-6666-777788889999</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>sourceoutputuid</key>
+				<string>E5F6A7B8-5555-6666-7777-88889999AAAA</string>
+				<key>vitowards</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
 				<string>B2C3D4E5-2222-3333-4444-555566667777</string>
 				<key>modifiers</key>
 				<integer>0</integer>
@@ -96,6 +121,61 @@
 			<key>version</key>
 			<integer>3</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>conditions</key>
+				<array>
+					<dict>
+						<key>inputstring</key>
+						<string>{var:action}</string>
+						<key>matchcasesensitive</key>
+						<false/>
+						<key>matchmode</key>
+						<integer>0</integer>
+						<key>matchstring</key>
+						<string>openurl</string>
+						<key>outputlabel</key>
+						<string>Open URL</string>
+						<key>uid</key>
+						<string>E5F6A7B8-5555-6666-7777-88889999AAAA</string>
+					</dict>
+				</array>
+				<key>elselabel</key>
+				<string>Copy</string>
+				<key>hideelse</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.conditional</string>
+			<key>uid</key>
+			<string>C3D4E5F6-3333-4444-5555-666677778888</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>browser</key>
+				<string></string>
+				<key>skipqueryencode</key>
+				<true/>
+				<key>skipvarencode</key>
+				<true/>
+				<key>spaces</key>
+				<string></string>
+				<key>url</key>
+				<string>{query}</string>
+				<key>utf8</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openurl</string>
+			<key>uid</key>
+			<string>D4E5F6A7-4444-5555-6666-777788889999</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string># Quick Translate
@@ -138,9 +218,23 @@ Uses Google Translate. No API key required.</string>
 		<key>B2C3D4E5-2222-3333-4444-555566667777</key>
 		<dict>
 			<key>xpos</key>
+			<real>620</real>
+			<key>ypos</key>
+			<real>150</real>
+		</dict>
+		<key>C3D4E5F6-3333-4444-5555-666677778888</key>
+		<dict>
+			<key>xpos</key>
 			<real>340</real>
 			<key>ypos</key>
 			<real>60</real>
+		</dict>
+		<key>D4E5F6A7-4444-5555-6666-777788889999</key>
+		<dict>
+			<key>xpos</key>
+			<real>620</real>
+			<key>ypos</key>
+			<real>40</real>
 		</dict>
 	</dict>
 	<key>userconfigurationconfig</key>
@@ -359,6 +453,23 @@ Uses Google Translate. No API key required.</string>
 			<string>textfield</string>
 			<key>variable</key>
 			<string>keyword</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<true/>
+				<key>label</key>
+				<string>Show "Open in Google Translate"</string>
+			</dict>
+			<key>description</key>
+			<string>Adds a fallback item that opens the query on translate.google.com in your default browser.</string>
+			<key>label</key>
+			<string>Browser fallback</string>
+			<key>type</key>
+			<string>checkbox</string>
+			<key>variable</key>
+			<string>show_open_in_browser</string>
 		</dict>
 	</array>
 	<key>version</key>

@@ -144,6 +144,31 @@ def pos_label(pos):
     return POS_DE.get(pos.lower(), pos.capitalize()) if pos else ""
 
 
+def google_translate_url(query, source, target):
+    params = urllib.parse.urlencode({
+        "sl": source or "auto",
+        "tl": target,
+        "text": query,
+        "op": "translate",
+    })
+    return f"https://translate.google.com/?{params}"
+
+
+def show_browser_fallback():
+    return os.getenv("show_open_in_browser", "1").strip().lower() not in ("", "0", "false")
+
+
+def browser_fallback_item(query, src, tgt, subtitle_base):
+    url = google_translate_url(query, src if src and src != "?" else "auto", tgt)
+    return {
+        "title": "\U0001F310 In Google Translate öffnen",
+        "subtitle": f"{subtitle_base} · translate.google.com",
+        "arg": url,
+        "variables": {"action": "openurl"},
+        "valid": True,
+    }
+
+
 def google_translate_full(query, source, target):
     params = urllib.parse.urlencode({
         "client": "gtx",
@@ -311,6 +336,9 @@ def translate(query):
                     "valid": True,
                 })
 
+        if show_browser_fallback():
+            items.append(browser_fallback_item(query, src, tgt, subtitle_base))
+
         # Insert autocorrect as very first item after everything else is built
         if autocorrect:
             items.insert(0, {
@@ -328,6 +356,12 @@ def translate(query):
             "subtitle": "\u00dcbersetzung fehlgeschlagen",
             "valid": False,
         }]
+        if show_browser_fallback() and query:
+            tgt_err = os.getenv("target_lang", "en")
+            items.append(browser_fallback_item(
+                query, "auto", tgt_err,
+                f"\U0001F310 auto → {flag(tgt_err)} {lang_name(tgt_err)}",
+            ))
 
     return json.dumps({"items": items}, ensure_ascii=False)
 
