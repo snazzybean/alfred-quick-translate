@@ -121,13 +121,48 @@ LANGS = {
     "zu": ("\U0001F1FF\U0001F1E6", "isiZulu"),
 }
 
-POS_DE = {
-    "noun": "Substantiv", "verb": "Verb", "adjective": "Adjektiv",
-    "adverb": "Adverb", "preposition": "Präposition", "conjunction": "Konjunktion",
-    "pronoun": "Pronomen", "interjection": "Interjektion", "abbreviation": "Abkürzung",
-    "exclamation": "Ausruf", "particle": "Partikel", "determiner": "Artikel",
-    "phrase": "Redewendung", "prefix": "Präfix", "suffix": "Suffix",
+STRINGS = {
+    "de": {
+        "error": "Fehler: {error}",
+        "translation_failed": "Übersetzung fehlgeschlagen",
+        "did_you_mean": "Meintest du: {query}",
+        "enter_to_correct": "Enter → mit Korrektur übersetzen",
+        "enter_text": "Text eingeben…",
+        "open_in_google": "In Google Translate öffnen",
+        "pos": {
+            "noun": "Substantiv", "verb": "Verb", "adjective": "Adjektiv",
+            "adverb": "Adverb", "preposition": "Präposition", "conjunction": "Konjunktion",
+            "pronoun": "Pronomen", "interjection": "Interjektion", "abbreviation": "Abkürzung",
+            "exclamation": "Ausruf", "particle": "Partikel", "determiner": "Artikel",
+            "phrase": "Redewendung", "prefix": "Präfix", "suffix": "Suffix",
+        },
+    },
+    "en": {
+        "error": "Error: {error}",
+        "translation_failed": "Translation failed",
+        "did_you_mean": "Did you mean: {query}",
+        "enter_to_correct": "Enter → use correction",
+        "enter_text": "Enter text…",
+        "open_in_google": "Open in Google Translate",
+        "pos": {
+            "noun": "Noun", "verb": "Verb", "adjective": "Adjective",
+            "adverb": "Adverb", "preposition": "Preposition", "conjunction": "Conjunction",
+            "pronoun": "Pronoun", "interjection": "Interjection", "abbreviation": "Abbreviation",
+            "exclamation": "Exclamation", "particle": "Particle", "determiner": "Determiner",
+            "phrase": "Phrase", "prefix": "Prefix", "suffix": "Suffix",
+        },
+    },
 }
+
+
+def ui_lang():
+    lang = os.getenv("primary_lang", "de")
+    return lang if lang in STRINGS else "en"
+
+
+def t(key, **kwargs):
+    value = STRINGS[ui_lang()].get(key) or STRINGS["en"].get(key, key)
+    return value.format(**kwargs) if kwargs else value
 
 
 def flag(lang):
@@ -141,7 +176,10 @@ def lang_name(lang):
 
 
 def pos_label(pos):
-    return POS_DE.get(pos.lower(), pos.capitalize()) if pos else ""
+    if not pos:
+        return ""
+    key = pos.lower()
+    return STRINGS[ui_lang()]["pos"].get(key, STRINGS["en"]["pos"].get(key, pos.capitalize()))
 
 
 def google_translate_url(query, source, target):
@@ -161,7 +199,7 @@ def show_browser_fallback():
 def browser_fallback_item(query, src, tgt, subtitle_base):
     url = google_translate_url(query, src if src and src != "?" else "auto", tgt)
     return {
-        "title": "\U0001F310 In Google Translate öffnen",
+        "title": "\U0001F310 " + t("open_in_google"),
         "subtitle": f"{subtitle_base} · translate.google.com",
         "arg": url,
         "variables": {"action": "openurl"},
@@ -252,7 +290,7 @@ def translate(query):
     target_lang = os.getenv("target_lang", "en")
 
     if not query or not query.strip():
-        return json.dumps({"items": [{"title": "Text eingeben\u2026", "subtitle": "t <text>", "valid": False}]})
+        return json.dumps({"items": [{"title": t("enter_text"), "valid": False}]})
 
     query = query.strip()
 
@@ -342,8 +380,8 @@ def translate(query):
         # Insert autocorrect as very first item after everything else is built
         if autocorrect:
             items.insert(0, {
-                "title": f"\u2728 Meintest du: {autocorrect}",
-                "subtitle": "Enter \u2192 mit Korrektur \u00fcbersetzen",
+                "title": f"\u2728 " + t("did_you_mean", query=autocorrect),
+                "subtitle": t("enter_to_correct"),
                 "arg": autocorrect,
                 "autocomplete": autocorrect,
                 "text": {"copy": autocorrect},
@@ -352,8 +390,8 @@ def translate(query):
 
     except Exception as e:
         items = [{
-            "title": f"Fehler: {e}",
-            "subtitle": "\u00dcbersetzung fehlgeschlagen",
+            "title": t("error", error=e),
+            "subtitle": t("translation_failed"),
             "valid": False,
         }]
         if show_browser_fallback() and query:
