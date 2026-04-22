@@ -3,3 +3,4 @@ prefs.plist
 *.alfredworkflow
 .claude/
 CLAUDE.md
+__pycache__/
